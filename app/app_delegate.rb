@@ -16,7 +16,21 @@ class AppDelegate
 
     @window.addSubview(@blue_view)
 
+    @add_button = button("Add")
+
+    @add_button.sizeToFit
+
+    @add_button.frame = CGRect.new([10, @window.frame.size.height - 10 - @add_button.frame.size.height],
+                                    @add_button.frame.size)
+    @window.addSubview(@add_button)
+
     puts "Hello from the console!"
     true
+  end
+
+  def button(title)
+    @button = UIButton.buttonWithType(UIButtonTypeRoundedRect)
+    @button.setTitle(title, forState:UIControlStateNormal)
+    @button
   end
 end
